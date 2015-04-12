@@ -8,5 +8,8 @@
       "name": "Gordon Forsythe",
       "email": "baohx2000@gmail.com"
     }
-  ]
+  ],
+  "require": {
+    "phpunit/phpunit": "4.6.4"
+  }
 }
