@@ -1,0 +1,12 @@
+{
+  "name": "baohx2000/doc",
+  "description": "Doctrine provider for Silex",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gordon Forsythe",
+      "email": "baohx2000@gmail.com"
+    }
+  ]
+}
