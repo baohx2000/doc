@@ -10,9 +10,18 @@
     }
   ],
   "require": {
-    "dflydev/doctrine-orm-service-provider": "~1"
+    "dflydev/doctrine-orm-service-provider": "~1",
+    "saxulum/saxulum-doctrine-orm-manager-registry-provider" : "~2",
+    "saxulum/saxulum-doctrine-orm-commands": "~1",
+    "saxulum/saxulum-console": "~1"
   },
   "require-dev": {
+    "silex/silex" : "~1",
     "phpunit/phpunit": "4.6.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Doc\\": "src"
+    }
   }
 }
