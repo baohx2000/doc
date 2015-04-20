@@ -26,11 +26,11 @@ class DocServiceProvider implements ServiceProviderInterface
      */
     public function register(Application $app)
     {
-        $app->register(new DoctrineOrmManagerRegistryProvider);
         // if console register console providers
         if (php_sapi_name() === 'cli') {
             $app->register(new ConsoleProvider);
         }
+        $app->register(new DoctrineOrmManagerRegistryProvider);
     }
 
     /**
