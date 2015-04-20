@@ -50,19 +50,21 @@ class DocServiceProvider implements ServiceProviderInterface
      */
     public function boot(Application $app)
     {
-        $app['console.commands'] = $app->extend('console.commands', function ($commands) use ($app) {
-            return array_merge(
-                $commands,
-                [
-                    new DiffCommandProxy(),
-                    new ExecuteCommandProxy(),
-                    new GenerateCommandProxy(),
-                    new LatestCommandProxy(),
-                    new MigrateCommandProxy(),
-                    new StatusCommandProxy(),
-                    new VersionCommandProxy(),
-                ]
-            );
-        });
+        if (php_sapi_name() === 'cli') {
+            $app['console.commands'] = $app->extend('console.commands', function ($commands) use ($app) {
+                return array_merge(
+                    $commands,
+                    [
+                        new DiffCommandProxy(),
+                        new ExecuteCommandProxy(),
+                        new GenerateCommandProxy(),
+                        new LatestCommandProxy(),
+                        new MigrateCommandProxy(),
+                        new StatusCommandProxy(),
+                        new VersionCommandProxy(),
+                    ]
+                );
+            });
+        }
     }
 }
