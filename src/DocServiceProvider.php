@@ -6,7 +6,7 @@
  * Time: 5:46 PM
  */
 
-namespace Doc;
+namespace B2k\Doc;
 
 
 use Saxulum\Console\Silex\Provider\ConsoleProvider;
