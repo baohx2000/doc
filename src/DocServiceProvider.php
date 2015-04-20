@@ -9,6 +9,13 @@
 namespace B2k\Doc;
 
 
+use B2k\Doc\Command\Proxy\DiffCommandProxy;
+use B2k\Doc\Command\Proxy\ExecuteCommandProxy;
+use B2k\Doc\Command\Proxy\GenerateCommandProxy;
+use B2k\Doc\Command\Proxy\LatestCommandProxy;
+use B2k\Doc\Command\Proxy\MigrateCommandProxy;
+use B2k\Doc\Command\Proxy\StatusCommandProxy;
+use B2k\Doc\Command\Proxy\VersionCommandProxy;
 use Saxulum\Console\Silex\Provider\ConsoleProvider;
 use Saxulum\DoctrineOrmManagerRegistry\Silex\Provider\DoctrineOrmManagerRegistryProvider;
 use Silex\Application;
@@ -43,6 +50,19 @@ class DocServiceProvider implements ServiceProviderInterface
      */
     public function boot(Application $app)
     {
-        // if running under cli, inject console commands
+        $app['console.commands'] = $app->extend('console.commands', function ($commands) use ($app) {
+            return array_merge(
+                $commands,
+                [
+                    new DiffCommandProxy(),
+                    new ExecuteCommandProxy(),
+                    new GenerateCommandProxy(),
+                    new LatestCommandProxy(),
+                    new MigrateCommandProxy(),
+                    new StatusCommandProxy(),
+                    new VersionCommandProxy(),
+                ]
+            );
+        });
     }
 }

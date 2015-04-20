@@ -13,7 +13,8 @@
     "dflydev/doctrine-orm-service-provider": "~1",
     "saxulum/saxulum-doctrine-orm-manager-registry-provider" : "~2",
     "saxulum/saxulum-doctrine-orm-commands": "~1",
-    "saxulum/saxulum-console": "~1"
+    "saxulum/saxulum-console": "~1",
+    "doctrine/migrations": "1.0.*@dev"
   },
   "require-dev": {
     "silex/silex" : "~1",
