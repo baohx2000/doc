@@ -13,6 +13,8 @@ use B2k\Doc\Command\CreateDatabaseDoctrineCommand;
 use B2k\Doc\Command\DropDatabaseDoctrineCommand;
 use B2k\Doc\Command\Proxy;
 use B2k\Doc\Helper\ManagerRegistryHelper;
+use Doctrine\DBAL\Migrations\Configuration\Configuration;
+use Doctrine\DBAL\Migrations\Tools\Console\Command\AbstractCommand;
 use Saxulum\Console\Silex\Provider\ConsoleProvider;
 use Saxulum\DoctrineOrmManagerRegistry\Silex\Provider\DoctrineOrmManagerRegistryProvider;
 use Silex\Application;
@@ -51,17 +53,28 @@ class DocServiceProvider implements ServiceProviderInterface
     {
         if (php_sapi_name() === 'cli') {
             $app['console.commands'] = $app->extend('console.commands', function ($commands) use ($app) {
+                $migrationCommands = [
+                    new Proxy\DiffCommandProxy(),
+                    new Proxy\ExecuteCommandProxy(),
+                    new Proxy\GenerateCommandProxy(),
+                    new Proxy\LatestCommandProxy(),
+                    new Proxy\MigrateCommandProxy(),
+                    new Proxy\StatusCommandProxy(),
+                    new Proxy\VersionCommandProxy(),
+                ];
+                if (isset($app['migrations.directory'])) {
+                    $config = new Configuration($app['db']);
+                    $config->setMigrationsDirectory($app['migrations.directory']);
+                    /** @var AbstractCommand $cmd */
+                    foreach ($migrationCommands as $cmd) {
+                        $cmd->setMigrationConfiguration($config);
+                    }
+                }
+
                 return array_merge(
                     $commands,
+                    $migrationCommands,
                     [
-                        new Proxy\DiffCommandProxy(),
-                        new Proxy\ExecuteCommandProxy(),
-                        new Proxy\GenerateCommandProxy(),
-                        new Proxy\LatestCommandProxy(),
-                        new Proxy\MigrateCommandProxy(),
-                        new Proxy\StatusCommandProxy(),
-                        new Proxy\VersionCommandProxy(),
-
                         new Proxy\ClearMetadataCacheDoctrineCommand(),
                         new Proxy\ClearQueryCacheDoctrineCommand(),
                         new Proxy\ClearResultCacheDoctrineCommand(),

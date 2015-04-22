@@ -1,6 +1,8 @@
 Doc SETUP
 =========
 
+Set your migrations directory within one of your application service providers:
+$app['migrations.directory'] = '/some/directory';
 `$app->register(new DocServiceProvider);`
 
 Doctrine ORM Service Provider
