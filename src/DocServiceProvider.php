@@ -91,7 +91,7 @@ class DocServiceProvider implements ServiceProviderInterface
                         new Proxy\UpdateSchemaDoctrineCommand(),
                         new Proxy\UpdateSchemaDoctrineCommand(),
                         new Proxy\ValidateSchemaCommand(),
-                        new Proxy\GenerateCommandProxy(),
+                        new Proxy\GenProxiesDoctrineCommand(),
 
                         new CreateDatabaseDoctrineCommand(),
                         new DropDatabaseDoctrineCommand(),
