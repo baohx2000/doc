@@ -67,6 +67,7 @@ class DocServiceProvider implements ServiceProviderInterface
                     $config->setMigrationsDirectory($app['migrations.directory']);
                     $config->setMigrationsNamespace('DocMigrations');
                     $config->setMigrationsTableName('doc_migrations');
+                    $config->registerMigrationsFromDirectory($app['migrations.directory']);
                     /** @var AbstractCommand $cmd */
                     foreach ($migrationCommands as $cmd) {
                         $cmd->setMigrationConfiguration($config);
