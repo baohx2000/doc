@@ -12,11 +12,13 @@ namespace B2k\Doc;
 use B2k\Doc\Command\CreateDatabaseDoctrineCommand;
 use B2k\Doc\Command\DropDatabaseDoctrineCommand;
 use B2k\Doc\Command\Proxy;
+use B2k\Doc\Helper\ManagerRegistryHelper;
 use Saxulum\Console\Silex\Provider\ConsoleProvider;
 use Saxulum\DoctrineOrmManagerRegistry\Silex\Provider\DoctrineOrmManagerRegistryProvider;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 use Doctrine\ORM\Tools\Console\Command;
+use Symfony\Component\Console\Application as ConsoleApplication;
 
 class DocServiceProvider implements ServiceProviderInterface
 {
@@ -79,6 +81,17 @@ class DocServiceProvider implements ServiceProviderInterface
                     ]
                 );
             });
+
+            if (isset($app['console'])) {
+                $app['console'] = $app->share(
+                    $app->extend('console', function (ConsoleApplication $consoleApplication) use ($app) {
+                        $helperSet = $consoleApplication->getHelperSet();
+                        $helperSet->set(new ManagerRegistryHelper($app['doctrine']), 'doctrine');
+
+                        return $consoleApplication;
+                    })
+                );
+            }
         }
     }
 }
