@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3aeea94145d1c16206574ce1eca6a597",
+    "hash": "3b7d644ee9d1a54da10668cf21bc2689",
     "packages": [
         {
             "name": "dflydev/doctrine-orm-service-provider",
@@ -867,80 +867,6 @@
             "time": "2014-01-30 20:41:31"
         },
         {
-            "name": "saxulum/saxulum-doctrine-orm-commands",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/saxulum/saxulum-doctrine-orm-commands.git",
-                "reference": "51b43d5974d15d76156dc4fa6f11a64d7db675b9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/saxulum/saxulum-doctrine-orm-commands/zipball/51b43d5974d15d76156dc4fa6f11a64d7db675b9",
-                "reference": "51b43d5974d15d76156dc4fa6f11a64d7db675b9",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/orm": "~2.3",
-                "php": ">=5.3.3",
-                "symfony/console": "~2.3"
-            },
-            "require-dev": {
-                "dflydev/doctrine-orm-service-provider": "~1.0,>=1.0.4",
-                "phpunit/phpunit": "3.7.*",
-                "saxulum/saxulum-console": "~2.0",
-                "saxulum/saxulum-doctrine-orm-manager-registry-provider": "~2.2",
-                "silex/silex": "~1.1"
-            },
-            "suggest": {
-                "dflydev/doctrine-orm-service-provider": "~1.0.4",
-                "saxulum/saxulum-console": "~2.0",
-                "saxulum/saxulum-doctrine-orm-manager-registry-provider": "~2.2",
-                "silex/silex": "~1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Saxulum\\DoctrineOrmCommands": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Dominik Zogg",
-                    "email": "dominik.zogg@gmail.com"
-                }
-            ],
-            "description": "Saxulum Doctrine ORM Commands",
-            "keywords": [
-                "cilex",
-                "commands",
-                "doctrine",
-                "orm",
-                "pimple",
-                "saxulum",
-                "silex"
-            ],
-            "time": "2014-05-01 10:40:30"
-        },
-        {
             "name": "saxulum/saxulum-doctrine-orm-manager-registry-provider",
             "version": "2.x-dev",
             "source": {
@@ -1638,6 +1564,80 @@
                 "psr-3"
             ],
             "time": "2015-03-26 14:39:45"
+        },
+        {
+            "name": "saxulum/saxulum-doctrine-orm-commands",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/saxulum/saxulum-doctrine-orm-commands.git",
+                "reference": "51b43d5974d15d76156dc4fa6f11a64d7db675b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/saxulum/saxulum-doctrine-orm-commands/zipball/51b43d5974d15d76156dc4fa6f11a64d7db675b9",
+                "reference": "51b43d5974d15d76156dc4fa6f11a64d7db675b9",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "~2.3",
+                "php": ">=5.3.3",
+                "symfony/console": "~2.3"
+            },
+            "require-dev": {
+                "dflydev/doctrine-orm-service-provider": "~1.0,>=1.0.4",
+                "phpunit/phpunit": "3.7.*",
+                "saxulum/saxulum-console": "~2.0",
+                "saxulum/saxulum-doctrine-orm-manager-registry-provider": "~2.2",
+                "silex/silex": "~1.1"
+            },
+            "suggest": {
+                "dflydev/doctrine-orm-service-provider": "~1.0.4",
+                "saxulum/saxulum-console": "~2.0",
+                "saxulum/saxulum-doctrine-orm-manager-registry-provider": "~2.2",
+                "silex/silex": "~1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Saxulum\\DoctrineOrmCommands": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Dominik Zogg",
+                    "email": "dominik.zogg@gmail.com"
+                }
+            ],
+            "description": "Saxulum Doctrine ORM Commands",
+            "keywords": [
+                "cilex",
+                "commands",
+                "doctrine",
+                "orm",
+                "pimple",
+                "saxulum",
+                "silex"
+            ],
+            "time": "2014-05-01 10:40:30"
         },
         {
             "name": "sebastian/comparator",

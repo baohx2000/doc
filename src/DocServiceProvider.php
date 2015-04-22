@@ -9,17 +9,14 @@
 namespace B2k\Doc;
 
 
-use B2k\Doc\Command\Proxy\DiffCommandProxy;
-use B2k\Doc\Command\Proxy\ExecuteCommandProxy;
-use B2k\Doc\Command\Proxy\GenerateCommandProxy;
-use B2k\Doc\Command\Proxy\LatestCommandProxy;
-use B2k\Doc\Command\Proxy\MigrateCommandProxy;
-use B2k\Doc\Command\Proxy\StatusCommandProxy;
-use B2k\Doc\Command\Proxy\VersionCommandProxy;
+use B2k\Doc\Command\CreateDatabaseDoctrineCommand;
+use B2k\Doc\Command\DropDatabaseDoctrineCommand;
+use B2k\Doc\Command\Proxy;
 use Saxulum\Console\Silex\Provider\ConsoleProvider;
 use Saxulum\DoctrineOrmManagerRegistry\Silex\Provider\DoctrineOrmManagerRegistryProvider;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
+use Doctrine\ORM\Tools\Console\Command;
 
 class DocServiceProvider implements ServiceProviderInterface
 {
@@ -55,13 +52,30 @@ class DocServiceProvider implements ServiceProviderInterface
                 return array_merge(
                     $commands,
                     [
-                        new DiffCommandProxy(),
-                        new ExecuteCommandProxy(),
-                        new GenerateCommandProxy(),
-                        new LatestCommandProxy(),
-                        new MigrateCommandProxy(),
-                        new StatusCommandProxy(),
-                        new VersionCommandProxy(),
+                        new Proxy\DiffCommandProxy(),
+                        new Proxy\ExecuteCommandProxy(),
+                        new Proxy\GenerateCommandProxy(),
+                        new Proxy\LatestCommandProxy(),
+                        new Proxy\MigrateCommandProxy(),
+                        new Proxy\StatusCommandProxy(),
+                        new Proxy\VersionCommandProxy(),
+
+                        new Proxy\ClearMetadataCacheDoctrineCommand(),
+                        new Proxy\ClearQueryCacheDoctrineCommand(),
+                        new Proxy\ClearResultCacheDoctrineCommand(),
+                        new Proxy\ConvertMappingDoctrineCommand(),
+                        new Proxy\CreateSchemaDoctrineCommand(),
+                        new Proxy\DropSchemaDoctrineCommand(),
+                        new Proxy\EnsureProductionSettingsDoctrineCommand(),
+                        new Proxy\InfoDoctrineCommand(),
+                        new Proxy\RunDqlDoctrineCommand(),
+                        new Proxy\RunSqlDoctrineCommand(),
+                        new Proxy\UpdateSchemaDoctrineCommand(),
+                        new Proxy\UpdateSchemaDoctrineCommand(),
+                        new Proxy\ValidateSchemaCommand(),
+
+                        new CreateDatabaseDoctrineCommand(),
+                        new DropDatabaseDoctrineCommand(),
                     ]
                 );
             });

@@ -2,7 +2,7 @@
 namespace B2k\Doc\Command\Proxy;
 
 use Doctrine\DBAL\Migrations\Tools\Console\Command\LatestCommand;
-use Saxulum\DoctrineOrmCommands\Command\Proxy\DoctrineCommandHelper;
+use B2k\Doc\Command\Proxy\DoctrineCommandHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
