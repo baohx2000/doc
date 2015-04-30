@@ -1,3 +1,11 @@
+What's (up) Doc?
+================
+
+Doc is a combination of multiple existing Doctrine-related service providers to provide a full-featured Doctrine integration for Silex applications, including:
+* DBAL
+* ORM (including having multiple Entity Managers)
+* Migrations
+
 Doc SETUP
 =========
 
