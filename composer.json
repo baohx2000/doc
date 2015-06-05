@@ -1,7 +1,7 @@
 {
   "name": "baohx2000/doc",
   "description": "Doctrine provider for Silex",
-  "minimum-stability": "dev",
+  "minimum-stability": "alpha",
   "license": "MIT",
   "authors": [
     {
@@ -15,6 +15,7 @@
     "saxulum/saxulum-console": "~1",
     "doctrine/migrations": "1.0.*@dev"
   },
+  "prefer-stable": true,
   "require-dev": {
     "silex/silex" : "~1",
     "phpunit/phpunit": "4.6.4"
